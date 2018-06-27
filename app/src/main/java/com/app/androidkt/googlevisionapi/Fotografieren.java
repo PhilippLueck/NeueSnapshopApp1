@@ -19,10 +19,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
@@ -45,13 +47,20 @@ import com.google.api.services.vision.v1.model.SafeSearchAnnotation;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Fotografieren extends AppCompatActivity implements AdapterView.OnItemSelectedListener  {
+
+        DatabaseHelper mDatabaseHelper;
+        Button addButton;
+        EditText editText;
 
     private static final String TAG = "MainActivity";
     private static final int RECORD_REQUEST_CODE = 101;
@@ -100,6 +109,15 @@ public class Fotografieren extends AppCompatActivity implements AdapterView.OnIt
                 takePictureFromCamera();
             }
         });
+
+
+
+        addButton= (Button) findViewById(R.id.addButton);
+        mDatabaseHelper = new DatabaseHelper(this);
+
+
+
+
     }
 
     @Override
@@ -288,4 +306,39 @@ public class Fotografieren extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
+    Calendar c = Calendar.getInstance();
+
+    String sDate = c.get(Calendar.YEAR) + "-"
+            + c.get(Calendar.MONTH)
+            + "-" + c.get(Calendar.DAY_OF_MONTH)
+            + " at " + c.get(Calendar.HOUR_OF_DAY)
+            + ":" + c.get(Calendar.MINUTE);
+    //Database
+
+   public void addButton (View view){
+
+       sDate = sDate +": "+ visionAPIData.getText().toString();
+        String newEntry = sDate.toString();
+        if(sDate.length()!= 0){
+            AddData(newEntry);
+            visionAPIData.setText("");
+        }else{
+            Toast.makeText(this, "You must put something in the text field!", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void AddData(String newEntry) {
+        boolean insertData = mDatabaseHelper.addData(newEntry);
+
+        if(insertData==true){
+            Toast.makeText(this, "Data Successfully Inserted!", Toast.LENGTH_LONG).show();
+        }else{
+            Toast.makeText(this, "Something went wrong :(.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 }

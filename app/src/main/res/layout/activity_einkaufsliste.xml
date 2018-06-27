@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".Einkaufsliste">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/elist"
+            android:layout_width="match_parent"
+            android:layout_height="255dp">
+
+        </ListView>
+
+        <Button
+            android:id="@+id/delet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="löschen"
+            android:text="Löschen" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

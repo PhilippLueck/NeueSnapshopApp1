@@ -22,7 +22,7 @@
         <activity android:name=".Fotografieren" />
         <activity android:name=".Einkaufsliste" />
         <activity android:name=".Historie" />
-        <activity android:name=".Einstellungen"></activity>
+        <activity android:name=".Einstellungen"/>
     </application>
 
 </manifest>
