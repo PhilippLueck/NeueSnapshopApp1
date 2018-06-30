@@ -11,12 +11,23 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/elist"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="255dp">
+            android:layout_height="567dp">
 
-        </ListView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/elist"
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp">
+
+                </ListView>
+            </LinearLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/delet"
