@@ -12,17 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Fotografieren" />
-        <activity android:name=".Einkaufsliste" />
-        <activity android:name=".Historie" />
-        <activity android:name=".Einstellungen"/>
+        <activity
+            android:name=".Fotografieren"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Einkaufsliste"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Historie"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Einstellungen"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
