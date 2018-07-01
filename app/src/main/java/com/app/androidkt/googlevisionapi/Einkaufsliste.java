@@ -62,16 +62,17 @@ public class Einkaufsliste extends AppCompatActivity {
         }
 
 
-       getComplexObject ();
+        getComplexObject ();
 
         for(int a = 0; a< 999; a++ ){
             if(arrayEins[a]==1 ){
 
-                // System.out.println("eingabe" + a);
-            //    listView.performItemClick(
-            //            listView.getChildAt(1),
-             //           1,
-             //           listView.getAdapter().getItemId(1));
+              //  System.out.println("eingabe" + a);
+
+              //  listView.requestFocusFromTouch();
+             //   listView.setSelection(a);
+              //  listView.performItemClick(
+                 //       listView.getAdapter().getView(a, null, null), a, a);
 
 
 
@@ -101,7 +102,11 @@ public class Einkaufsliste extends AppCompatActivity {
                 text.setPaintFlags(text.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
                   arrayEins[i]=1;
-                System.out.println(i);
+
+                String recipes = String.valueOf(adapterView.getItemAtPosition(i));
+
+                System.out.println(l);
+
                 SharedPreferences prefs = getPreferences(MODE_PRIVATE);
                 SharedPreferences.Editor e = prefs.edit();
                 e.putString("COMPLEX_OBJECT",new Gson().toJson(arrayEins));
