@@ -67,7 +67,7 @@ public class Einkaufsliste extends AppCompatActivity {
         for(int a = 0; a< 999; a++ ){
             if(arrayEins[a]==1 ){
 
-                System.out.println("eingabe" + a);
+                // System.out.println("eingabe" + a);
             //    listView.performItemClick(
             //            listView.getChildAt(1),
              //           1,
